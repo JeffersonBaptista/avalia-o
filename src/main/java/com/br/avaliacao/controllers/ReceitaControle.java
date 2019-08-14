@@ -55,12 +55,12 @@ public class ReceitaControle {
 		}
 	}
 
-	@PutMapping("/")
-	public ResponseEntity<?> atualizarReceita(@RequestBody Receita receita) {
+	@PutMapping("/{id}")
+	public ResponseEntity<?> atualizarReceita(@PathVariable int id,@RequestBody Receita receita) {
 
 		try {
 
-			return ResponseEntity.ok().body(receitaService.atualizarReceita(receita));
+			return ResponseEntity.ok().body(receitaService.atualizarReceita(id,receita ));
 
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

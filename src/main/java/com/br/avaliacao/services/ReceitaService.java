@@ -29,11 +29,12 @@ public class ReceitaService {
 		return receitaRepositoty.findById(id).get();
 	}
 
-	public Receita atualizarReceita(Receita atualizar) {
-		Receita verifica = new Receita();
-		verifica = receitaRepositoty.findById(atualizar.getId()).get();
+	public Receita atualizarReceita(int id, Receita atualizar) {
+		Receita teste = new Receita();
+		teste = receitaRepositoty.findById(id).get();
 
-		if (verifica != null) {
+		if (teste!= null) {
+			atualizar.setId(id);
 			return receitaRepositoty.save(atualizar);
 
 		}
