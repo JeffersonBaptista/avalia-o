@@ -9,24 +9,33 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Receita implements Serializable{
+public class Receita implements Serializable {
 	private static final long serilVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	
+
 	private String nome;
-	
+
 	@NotBlank(message = "Campo ingredoientes é obrigatorio")
 	private String ingredientes;
-	
+
 	@NotBlank(message = "Campo modo de preparara é obrigatorio")
 	private String modoDePreparar;
 
+	private boolean status;
+
 	public Receita() {
-		
+
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
 	public Integer getId() {
@@ -60,8 +69,5 @@ public class Receita implements Serializable{
 	public void setModoDePreparar(String modoDePreparar) {
 		this.modoDePreparar = modoDePreparar;
 	}
-	
-	
-	
 
 }
